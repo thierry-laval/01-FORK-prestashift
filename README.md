@@ -1,113 +1,117 @@
-# PrestaShift — PrestaShop Migration Module
+# PrestaShift — Module de migration PrestaShop
 
-Professional data migration tool for PrestaShop. Migrate your shop data between PrestaShop 1.7, 8, and 9 with ease.
+> Fork basé sur le travail de [marcingajewski.pl](https://marcingajewski.pl) / [GajewskiMarcin/prestashift](https://github.com/GajewskiMarcin/prestashift).
 
-## Features
+Ce fork est une adaptation locale du projet original. Il peut inclure des correctifs, des compatibilités spécifiques ou des modifications destinées à un environnement de production particulier. Il est destiné à servir de base de travail personnelle et de maintenance continue, sans remplacer le dépôt upstream officiel.
 
-- **39-step migration pipeline** — products, categories, customers, orders, images, carriers, CMS, and much more
-- **Two connection modes** — Bridge Connector (works across servers) or Direct Database (faster, same server)
-- **Version-aware** — automatic detection of source/target versions with compatibility warnings
-- **PS 1.7 → 8/9 transformations** — `redirect_type`, `id_type_redirected` auto-converted
-- **Incremental sync** — migrate only changes since last sync
-- **Batch processing** — configurable batch sizes with pause/resume support
-- **Image transfer** — downloads images and generates all thumbnail sizes
-- **Multistore support** — choose target shop ID
-- **Pre-flight checks** — validates PHP limits, disk space, cURL before starting
-- **Post-migration tasks** — auto rebuilds search index, category tree, clears cache
-- **Dry run preview** — see record counts before migrating
-- **File logging** — detailed logs in `var/logs/prestashift.log`
-- **Redirect map** — generates 301 redirect file for SEO preservation
-- **Status mapping** — map order statuses between source and target
-- **Selective configuration** — migrates safe shop settings (name, SEO, shipping, etc.)
-- **Multi-language** — English + Polish (translatable via PrestaShop Back Office)
+Outil professionnel de migration de données pour PrestaShop. Migrez les données de votre boutique entre PrestaShop 1.7, 8 et 9 en toute simplicité.
 
-## What gets migrated
+## À propos du fork
 
-| Area | Data |
-|------|------|
-| **Catalog** | Products, Categories, Attributes, Features, Stock, Packs, Virtual Products, Customization Fields, Tags |
-| **Pricing** | Specific Prices, Catalog Price Rules |
-| **Media** | Product Images (with thumbnails), Attachments, Manufacturer logos |
-| **Customers** | Customers, Groups, Addresses, Wishlists |
-| **Orders** | Orders, Order Details, History, Payments, Invoices, Credit Slips, Carts |
-| **Brands** | Manufacturers, Suppliers, Product-Supplier links |
-| **Shipping** | Carriers, Ranges, Delivery zones, Fees |
-| **Content** | CMS Pages & Categories, Meta/SEO, Contacts, Physical Stores |
-| **Localization** | Countries, States/Regions, Zones, Currencies, Languages, Tax Rules |
-| **Admin** | Employees, Profiles, Cart Rules (with conditions), Shop Configuration |
-| **Stock** | Stock Available, Stock Movements |
+Ce dépôt reprend le module PrestaShift et l’adapte selon les besoins de son environnement de développement et de mise en production. Les modifications peuvent évoluer au fil du temps en fonction des cas d’usage rencontrés, des compatibilités PrestaShop et des corrections nécessaires sur des versions spécifiques.
 
-## Requirements
+## Fonctionnalités
 
-- **Target shop:** PrestaShop 1.7+ (where PrestaShift is installed)
-- **Source shop:** PrestaShop 1.7+ (where PSConnector is installed)
-- PHP 7.4+ with cURL extension
+- **Pipeline de migration en 39 étapes** — produits, catégories, clients, commandes, images, transporteurs, CMS et bien plus encore
+- **Deux modes de connexion** — Connecteur Bridge (fonctionne entre serveurs) ou base de données directe (plus rapide, même serveur)
+- **Compatible avec les versions** — détection automatique des versions source/cible avec avertissements de compatibilité
+- **Transformations PS 1.7 → 8/9** — `redirect_type`, `id_type_redirected` convertis automatiquement
+- **Synchronisation incrémentale** — ne migrer que les modifications depuis la dernière synchronisation
+- **Traitement par lots** — tailles de lots configurables avec prise en charge de pause/reprise
+- **Transfert d’images** — télécharge les images et génère toutes les tailles de vignettes
+- **Support multiboutique** — choisissez l’ID de la boutique cible
+- **Vérifications avant migration** — valide les limites PHP, l’espace disque, cURL avant le démarrage
+- **Tâches post-migration** — reconstruit automatiquement l’index de recherche, l’arbre des catégories, vide le cache
+- **Aperçu en mode test** — voir le nombre d’enregistrements avant la migration
+- **Journalisation des fichiers** — journaux détaillés dans `var/logs/prestashift.log`
+- **Plan de redirection** — génère un fichier de redirection 301 pour préserver le référencement
+- **Mappage des statuts** — mappe les statuts de commande entre la source et la cible
+- **Configuration sélective** — migre les paramètres sécurisés de la boutique (nom, SEO, livraison, etc.)
+- **Multi-langue** — Anglais + Polonais (traductible via le back office PrestaShop)
+
+## Ce qui est migré
+
+| Zone | Données |
+|------|---------|
+| **Catalogue** | Produits, catégories, attributs, fonctionnalités, stock, packs, produits virtuels, champs de personnalisation, étiquettes |
+| **Tarification** | Prix spécifiques, règles de prix catalogue |
+| **Médias** | Images produits (avec vignettes), pièces jointes, logos fabricants |
+| **Clients** | Clients, groupes, adresses, listes de souhaits |
+| **Commandes** | Commandes, détails de commande, historique, paiements, factures, avoirs, paniers |
+| **Marques** | Fabricants, fournisseurs, liens produit-fournisseur |
+| **Livraison** | Transporteurs, tranches, zones de livraison, frais |
+| **Contenu** | Pages CMS & catégories, méta/SEO, contacts, magasins physiques |
+| **Localisation** | Pays, États/régions, zones, devises, langues, règles de taxes |
+| **Administration** | Employés, profils, règles de panier (avec conditions), configuration de la boutique |
+| **Stock** | Stock disponible, mouvements de stock |
+
+## Prérequis
+
+- **Boutique cible :** PrestaShop 1.7+ (où PrestaShift est installé)
+- **Boutique source :** PrestaShop 1.7+ (où PSConnector est installé)
+- PHP 7.4+ avec extension cURL
 - MySQL 5.7+ / MariaDB 10.3+
 
 ## Installation
 
-### On the TARGET shop (new shop):
-1. Upload `prestashift/` folder to `/modules/`
-2. Install via Back Office → Modules → "PrestaShift Migration"
+### Sur la boutique CIBLE (nouvelle boutique) :
+1. Téléversez le dossier `prestashift/` dans `/modules/`
+2. Installez via le back office → Modules → "PrestaShift Migration"
 
-### On the SOURCE shop (old shop):
-1. Upload `psconnector/` folder to `/modules/`
-2. Install via Back Office → Modules → "PrestaShift Connector"
-3. Copy the generated secure token from the module configuration page
+### Sur la boutique SOURCE (ancienne boutique) :
+1. Téléversez le dossier `psconnector/` dans `/modules/`
+2. Installez via le back office → Modules → "PrestaShift Connector"
+3. Copiez le jeton sécurisé généré depuis la page de configuration du module
 
-### Run migration:
-1. Open PrestaShift on the target shop
-2. Enter source shop URL + token
-3. Select data scope
-4. Configure options (batch size, clean target, etc.)
-5. Launch migration
+### Lancer la migration :
+1. Ouvrez PrestaShift sur la boutique cible
+2. Saisissez l’URL de la boutique source + le jeton
+3. Sélectionnez la portée des données
+4. Configurez les options (taille des lots, nettoyage de la cible, etc.)
+5. Lancez la migration
 
 ## Architecture
 
 ```
-Source Shop (PS 1.7/8)          Target Shop (PS 8/9)
+Boutique source (PS 1.7/8)          Boutique cible (PS 8/9)
 ┌─────────────────┐            ┌──────────────────┐
 │   PSConnector    │◄──HTTP──► │   PrestaShift     │
-│   (read-only     │   Bridge  │   (migration      │
-│    API bridge)   │           │    engine)         │
+│   (pont API      │   Bridge  │   (moteur de      │
+│    en lecture)   │           │    migration)     │
 └─────────────────┘            └──────────────────┘
 ```
 
-PSConnector exposes a secure, read-only API endpoint. PrestaShift connects to it via HTTP, fetches data in batches, transforms it for version compatibility, and imports it into the target database.
+PSConnector expose un point d’entrée API sécurisé en lecture seule. PrestaShift s’y connecte via HTTP, récupère les données par lots, les transforme pour assurer la compatibilité des versions, puis les importe dans la base de données cible.
 
-Alternative: Direct Database connection (PDO) for same-server migrations — faster, no bridge needed.
+Alternative : connexion directe à la base de données (PDO) pour les migrations sur le même serveur — plus rapide, sans pont nécessaire.
 
-## Security
+## Sécurité
 
-- Token-based authentication (64-char hex)
-- Connector is **read-only** — write operations blocked
-- File access restricted to `img/`, `download/`, `upload/` directories
-- Path traversal protection with `realpath()` validation
-- Timing-safe token comparison (`hash_equals`)
+- Authentification basée sur un jeton (64 caractères hexadécimaux)
+- Connecteur en lecture seule — les opérations d’écriture sont bloquées
+- Accès aux fichiers limité aux répertoires `img/`, `download/`, `upload/`
+- Protection contre les traversées de chemin avec validation via `realpath()`
+- Comparaison de jetons sécurisée contre les attaques temporelles (`hash_equals`)
 
-## Error reports (opt-in)
+## Rapports d’erreurs (optionnels)
 
-The module can e-mail a failure report to the author, to help diagnose migration problems.
-**It is disabled by default** — you enable it with the *Send Error Reports to Developer* switch
-in the Options step.
+Le module peut envoyer un rapport d’échec par e-mail à l’auteur afin de diagnostiquer les problèmes de migration.
+**Il est désactivé par défaut** — vous l’activez avec le commutateur *Envoyer les rapports d’erreur au développeur* dans l’étape Options.
 
-When enabled, a failed migration sends: the error message and debug payload, your PrestaShop and
-PHP versions, `memory_limit` / `max_execution_time`, the source shop URL, and the e-mail address of
-the logged-in employee. Nothing is sent while the switch is off, and no customer or order data is
-ever transmitted. See [TelemetryService.php](prestashift/src/Service/TelemetryService.php) — it is
-the only code path that sends anything to the author. The module's other outbound connection
-(`ConnectorClient`) talks solely to the source shop URL you configure yourself.
+Quand il est activé, une migration en échec envoie : le message d’erreur et la charge utile de débogage, les versions de PrestaShop et PHP, `memory_limit` / `max_execution_time`, l’URL de la boutique source et l’adresse e-mail de l’employé connecté. Rien n’est envoyé lorsque le commutateur est désactivé, et aucune donnée client ou commande n’est jamais transmise. Voir [TelemetryService.php](prestashift/src/Service/TelemetryService.php) — c’est le seul chemin de code qui envoie quoi que ce soit à l’auteur. L’autre connexion sortante du module (`ConnectorClient`) ne communique qu’avec l’URL de la boutique source que vous configurez vous-même.
 
-## Support
+## Support du fork
 
-- [Report issues](https://github.com/GajewskiMarcin/prestashift/issues)
-- [Discussions](https://github.com/GajewskiMarcin/prestashift/discussions)
-- [Buy me a coffee](https://buymeacoffee.com/marcingajewski)
+- Signaler les problèmes directement dans ce dépôt GitHub si vous utilisez cette version forkée.
+- Suivre les correctifs et les changements spécifiques à cette adaptation.
+- Les demandes de support doivent rester centrées sur cette version locale et non sur le dépôt original.
 
-## Author
+> Si vous utilisez ce fork, veuillez signaler les problèmes directement dans ce dépôt et non dans le dépôt d’origine, sauf indication contraire.
 
-Created by [marcingajewski.pl](https://marcingajewski.pl)
+## Auteur
 
-## License
+Créé à l’origine par [marcingajewski.pl](https://marcingajewski.pl). Cette version est un fork maintenu pour des besoins spécifiques et des adaptations locales.
 
-[Academic Free License 3.0 (AFL-3.0)](LICENSE) — the standard licence for PrestaShop modules.
+## Licence
+
+[Academic Free License 3.0 (AFL-3.0)](LICENSE) — la licence standard des modules PrestaShop.

@@ -2,9 +2,12 @@
 /**
  * PrestaShift Migration Module
  * 
- * @author    marcingajewski.pl <kontakt@marcin.gajewski.pl>
+ * Original author: marcingajewski.pl <kontakt@marcin.gajewski.pl>
+ * Modified by:     Thierry Laval <contact@thierrylaval.dev>
+ *
  * @copyright 2026 marcingajewski.pl
- * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
+ * @copyright 2026 Thierry Laval
+ * @license   Academic Free License 3.0 (AFL-3.0)
  * @version   1.3.0
  */
 
