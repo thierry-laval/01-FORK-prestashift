@@ -26,7 +26,7 @@ Ce dépôt reprend le module PrestaShift et l’adapte selon les besoins de son 
 
 Le module permet notamment de migrer les produits, catégories, clients, commandes, images, transporteurs, CMS et bien plus encore, avec un système de vérification et de contrôle avant l’exécution de la migration.
 
-Il est conçu pour travailler en deux modes : via un connecteur bridge ou par connexion directe à la base de données. Les migrations peuvent être traitées par lots, avec synchronisation incrémentale, vérification des versions source/cible, validations PHP/MySQL, gestion des redirections, mappage des statuts et génération de journaux détaillés.
+Il est conçu pour travailler en deux modes, via un connecteur bridge ou par connexion directe à la base de données. Les migrations peuvent être traitées par lots, avec synchronisation incrémentale, vérification des versions source/cible, validations PHP/MySQL, gestion des redirections, mappage des statuts et génération de journaux détaillés.
 
 ### 🚀 Fonctionnalités
 
