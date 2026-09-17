@@ -3,7 +3,7 @@
  * PrestaShift Migration Module
  * 
  * Original author: marcingajewski.pl <kontakt@marcin.gajewski.pl>
- * Modified by:     Thierry Laval <contact@thierrylaval.dev>
+ * Modifié par :    Thierry Laval <contact@thierrylaval.dev>
  *
  * @copyright 2026 marcingajewski.pl
  * @copyright 2026 Thierry Laval
@@ -81,7 +81,7 @@ class PrestaShift extends Module
         $tab->class_name = 'AdminPrestaShiftMigration';
         $tab->name = [];
         foreach (Language::getLanguages(true) as $lang) {
-            $tab->name[$lang['id_lang']] = 'Migracja PrestaShift';
+            $tab->name[$lang['id_lang']] = $this->l('PrestaShift Migration');
         }
         $tab->id_parent = (int) Tab::getIdFromClassName('AdminAdvancedParameters');
         $tab->module = $this->name;
@@ -101,6 +101,6 @@ class PrestaShift extends Module
 
     public function getContent()
     {
-        Tools::redirectAdmin($this->context->link->getAdminLink('AdminPrestaShiftMigration'));
+        return Tools::redirectAdmin($this->context->link->getAdminLink('AdminPrestaShiftMigration'));
     }
 }

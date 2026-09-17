@@ -3,7 +3,7 @@
  * PrestaShift Connector API Endpoint
  *
  * Original author: marcingajewski.pl <kontakt@marcin.gajewski.pl>
- * Modified by:     Thierry Laval <contact@thierrylaval.dev>
+ * Modifié par :    Thierry Laval <contact@thierrylaval.dev>
  *
  * @copyright 2026 marcingajewski.pl
  * @copyright 2026 Thierry Laval

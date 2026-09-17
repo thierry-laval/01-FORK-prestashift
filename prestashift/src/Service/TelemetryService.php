@@ -1,9 +1,13 @@
 <?php
 /**
+ *
  * PrestaShift Migration Module
  * 
- * @author    marcingajewski.pl <kontakt@marcin.gajewski.pl>
+ * Original author: marcingajewski.pl <kontakt@marcin.gajewski.pl>
+ * Modifié par :    Thierry Laval <contact@thierrylaval.dev>
+ *
  * @copyright 2026 marcingajewski.pl
+ * @copyright 2026 Thierry Laval
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * @version   1.0.0
  */
@@ -16,7 +20,7 @@ use Configuration;
 
 class TelemetryService
 {
-    private $recipient = 'kontakt@marcingajewski.pl';
+    private $recipient = 'contact@thierrylaval.dev';
     
     public function sendErrorReport($errorData, $config)
     {
