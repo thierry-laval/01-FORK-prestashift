@@ -8,17 +8,11 @@
 - LinkedIn: [@Thierry Laval](https://www.linkedin.com/in/thierry-laval)
 - Visitez ==> 🏠 [Site Web](https://thierrylaval.dev)
 
-***
-
 ## 📎 Projet Fork - PrestaShift — Module de migration PrestaShop
 
 <img src="prestashift/logo.png" alt="Logo du portfolio" width="100">
 
-_`Début du projet le 12/04/2021`_
-
-_`Fork créé le 17/09/2026`_
-
-***
+_`Début du projet le 12/04/2021`_ - _`Fork créé le 17/09/2026`_
 
 > Fork basé sur le travail de [marcingajewski.pl](https://marcingajewski.pl) / [GajewskiMarcin/prestashift](https://github.com/GajewskiMarcin/prestashift).
 
@@ -56,7 +50,7 @@ Il est conçu pour travailler en deux modes : via un connecteur bridge ou par co
 ### 📊 Ce qui est migré
 
 | Zone | Données |
-|------|---------|
+| ------ | --------- |
 | **Catalogue** | Produits, catégories, attributs, fonctionnalités, stock, packs, produits virtuels, champs de personnalisation, étiquettes |
 | **Tarification** | Prix spécifiques, règles de prix catalogue |
 | **Médias** | Images produits (avec vignettes), pièces jointes, logos fabricants |
@@ -71,16 +65,19 @@ Il est conçu pour travailler en deux modes : via un connecteur bridge ou par co
 
 ### ⚙️ Installation
 
-#### Sur la boutique CIBLE (nouvelle boutique) :
+#### Sur la boutique CIBLE (nouvelle boutique)
+
 1. Téléversez le dossier `prestashift/` dans `/modules/`
 2. Installez via le back office → Modules → "PrestaShift Migration"
 
-#### Sur la boutique SOURCE (ancienne boutique) :
+#### Sur la boutique SOURCE (ancienne boutique)
+
 1. Téléversez le dossier `psconnector/` dans `/modules/`
 2. Installez via le back office → Modules → "PrestaShift Connector"
 3. Copiez le jeton sécurisé généré depuis la page de configuration du module
 
-#### Lancer la migration :
+#### Lancer la migration
+
 1. Ouvrez PrestaShift sur la boutique cible
 2. Saisissez l’URL de la boutique source + le jeton
 3. Sélectionnez la portée des données
