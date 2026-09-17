@@ -10,9 +10,9 @@
 
 ***
 
-### 📎 Projet (numéro) - PrestaShift — Module de migration PrestaShop
+## 📎 Projet Fork - PrestaShift — Module de migration PrestaShop
 
-<img src="prestashift/logo.png" alt="Logo du portfolio" width="200">
+<img src="prestashift/logo.png" alt="Logo du portfolio" width="100">
 
 _`Début du projet le 12/04/2021`_
 
