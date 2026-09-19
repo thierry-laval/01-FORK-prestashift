@@ -12,7 +12,7 @@
 
 <img src="prestashift/logo.png" alt="Logo PrestaMigration" width="100">
 
-_`Début du projet le 12/04/2021`_ - _`Nouvelle version développée depuis le 17/09/2026 (voir [ATTRIBUTION.md](ATTRIBUTION.md))`_
+_Début du projet le 12/04/2021_ - _Nouvelle version développée depuis le 17/09/2026 (voir [ATTRIBUTION.md](ATTRIBUTION.md))_
 
 Module de migration PrestaShop développé par **Thierry Laval**.
 
