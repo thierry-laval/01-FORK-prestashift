@@ -2,40 +2,36 @@
 
 ## Projet original
 
-Ce projet est une œuvre dérivée de **PrestaShift**, créé à l'origine par **Marcin Gajewski**.
+Ce projet est une œuvre dérivée de **PrestaShift**, créée à l’origine par **Marcin Gajewski**.
 
-Projet original: https://github.com/GajewskiMarcin/prestashift
-
-Auteur original: Marcin Gajewski
-https://marcingajewski.pl
-
-Soutenir le travail de l'auteur original: https://buymeacoffee.com/marcingajewski
+- Projet original : https://github.com/GajewskiMarcin/prestashift
+- Auteur original : Marcin Gajewski
+- Site de l’auteur : https://marcingajewski.pl
+- Soutenir le travail de l’auteur original : https://buymeacoffee.com/marcingajewski
 
 ## Licence
 
 Le projet PrestaShift est distribué sous la **Academic Free License 3.0 (AFL-3.0)**.
 Ce projet contient des modifications et des développements dérivés du projet original PrestaShift.
-Les mentions d'attribution du projet original sont conservées conformément à l'article 6 de l'AFL-3.0.
+Les mentions d’attribution du projet original sont conservées conformément à l’article 6 de l’AFL-3.0.
 
 ## Modifications
 
 Cette œuvre dérivée a été modifiée et développée par **Thierry Laval**.
 Le module possède son propre nom, sa propre identité visuelle, ainsi que des modifications de code et des fonctionnalités supplémentaires.
-Il ne s'agit pas du projet original PrestaShift.
-Les mentions de copyright et d'attribution relatives au projet original restent applicables aux parties dérivées de celui-ci.
+Il ne s’agit pas du projet original PrestaShift.
+Les mentions de copyright et d’attribution relatives au projet original restent applicables aux parties dérivées de celui-ci.
 
-# Attribution
+---
 
 ## Original project
 
 This project is a derivative work of **PrestaShift**, originally created by **Marcin Gajewski**.
 
-Original project: https://github.com/GajewskiMarcin/prestashift
-
-Original author: Marcin Gajewski
-https://marcingajewski.pl
-
-Support the original author: https://buymeacoffee.com/marcingajewski
+- Original project: https://github.com/GajewskiMarcin/prestashift
+- Original author: Marcin Gajewski
+- Author website: https://marcingajewski.pl
+- Support the original author: https://buymeacoffee.com/marcingajewski
 
 ## License
 
