@@ -1,6 +1,6 @@
 # ![Logo du portfolio](https://raw.githubusercontent.com/thierry-laval/archives/master/images/logo-portfolio.png)
 
-## Auteur
+## Adaptation par
 
 👤 &nbsp; **Thierry LAVAL** [🇫🇷 Contactez moi 🇬🇧](mailto:contact@thierrylaval.dev)
 
@@ -14,7 +14,7 @@
 
 _Début du projet le 12/04/2021_ - _Nouvelle version développée depuis le 17/09/2026 (voir [ATTRIBUTION.md](ATTRIBUTION.md))_
 
-Module de migration PrestaShop développé par **Thierry Laval**.
+Module de migration PrestaShop adapté et développé par **Thierry Laval**.
 
 PrestaMigration permet de migrer les données de votre boutique entre PrestaShop 1.7, 8 et 9, avec des contrôles avant migration et un traitement adapté aux environnements de production.
 
