@@ -8,21 +8,19 @@
 - LinkedIn: [@Thierry Laval](https://www.linkedin.com/in/thierry-laval)
 - Visitez ==> 🏠 [Site Web](https://thierrylaval.dev)
 
-## 📎 Projet Fork - PrestaShift — Module de migration PrestaShop
+## 📎 PrestaMigration — Module de migration PrestaShop
 
-<img src="prestashift/logo.png" alt="Logo du portfolio" width="100">
+<img src="prestashift/logo.png" alt="Logo PrestaMigration" width="100">
 
-_`Début du projet le 12/04/2021`_ - _`Fork créé le 17/09/2026`_
+_`Début du projet le 12/04/2021`_ - _`Nouvelle version développée depuis le 17/09/2026 (voir [ATTRIBUTION.md](ATTRIBUTION.md))`_
 
-> Fork basé sur le travail de [marcingajewski.pl](https://marcingajewski.pl) / [GajewskiMarcin/prestashift](https://github.com/GajewskiMarcin/prestashift).
+Module de migration PrestaShop développé par **Thierry Laval**.
 
-Ce fork est une adaptation locale du projet original. Il peut inclure des correctifs, des compatibilités spécifiques ou des modifications destinées à un environnement de production particulier. Il sert de base de travail personnelle et de maintenance continue, sans remplacer le dépôt upstream officiel.
-
-Outil professionnel de migration de données pour PrestaShop. Migrez les données de votre boutique entre PrestaShop 1.7, 8 et 9 en toute simplicité.
+PrestaMigration permet de migrer les données de votre boutique entre PrestaShop 1.7, 8 et 9, avec des contrôles avant migration et un traitement adapté aux environnements de production.
 
 ### ✨ Description du projet
 
-Ce dépôt reprend le module PrestaShift et l’adapte selon les besoins de son environnement de développement et de mise en production. Les modifications peuvent évoluer au fil du temps en fonction des cas d’usage rencontrés, des compatibilités PrestaShop et des corrections nécessaires sur des versions spécifiques.
+PrestaMigration est développé selon les besoins de son environnement de développement et de mise en production. Les fonctionnalités peuvent évoluer en fonction des cas d’usage rencontrés, des compatibilités PrestaShop et des corrections nécessaires sur des versions spécifiques.
 
 Le module permet notamment de migrer les produits, catégories, clients, commandes, images, transporteurs, CMS et bien plus encore, avec un système de vérification et de contrôle avant l’exécution de la migration.
 
@@ -30,7 +28,7 @@ Il est conçu pour travailler en deux modes, via un connecteur bridge ou par con
 
 ### 🚀 Fonctionnalités
 
-- **Pipeline de migration en 39 étapes** — produits, catégories, clients, commandes, images, transporteurs, CMS et bien plus encore
+- **Pipeline de migration en 41 étapes** — produits, catégories, clients, commandes, images, transporteurs, CMS et bien plus encore
 - **Deux modes de connexion** — Connecteur Bridge (fonctionne entre serveurs) ou base de données directe (plus rapide, même serveur)
 - **Compatible avec les versions** — détection automatique des versions source/cible avec avertissements de compatibilité
 - **Transformations PS 1.7 → 8/9** — `redirect_type`, `id_type_redirected` convertis automatiquement
@@ -68,17 +66,17 @@ Il est conçu pour travailler en deux modes, via un connecteur bridge ou par con
 #### Sur la boutique CIBLE (nouvelle boutique)
 
 1. Téléversez le dossier `prestashift/` dans `/modules/`
-2. Installez via le back office → Modules → "PrestaShift Migration"
+2. Installez via le back office → Modules → "PrestaShift Migration" (nom technique actuel du module)
 
 #### Sur la boutique SOURCE (ancienne boutique)
 
 1. Téléversez le dossier `psconnector/` dans `/modules/`
-2. Installez via le back office → Modules → "PrestaShift Connector"
+2. Installez via le back office → Modules → "PrestaShift Connector" (nom technique actuel du connecteur)
 3. Copiez le jeton sécurisé généré depuis la page de configuration du module
 
 #### Lancer la migration
 
-1. Ouvrez PrestaShift sur la boutique cible
+1. Ouvrez PrestaMigration sur la boutique cible
 2. Saisissez l’URL de la boutique source + le jeton
 3. Sélectionnez la portée des données
 4. Configurez les options (taille des lots, nettoyage de la cible, etc.)
@@ -89,13 +87,13 @@ Il est conçu pour travailler en deux modes, via un connecteur bridge ou par con
 ```
 Boutique source (PS 1.7/8)          Boutique cible (PS 8/9)
 ┌─────────────────┐            ┌──────────────────┐
-│   PSConnector    │◄──HTTP──► │   PrestaShift     │
+│   PSConnector    │◄──HTTP──► │   PrestaMigration │
 │   (pont API      │   Bridge  │   (moteur de      │
 │    en lecture)   │           │    migration)     │
 └─────────────────┘            └──────────────────┘
 ```
 
-PSConnector expose un point d’entrée API sécurisé en lecture seule. PrestaShift s’y connecte via HTTP, récupère les données par lots, les transforme pour assurer la compatibilité des versions, puis les importe dans la base de données cible.
+PSConnector expose un point d’entrée API sécurisé en lecture seule. PrestaMigration s’y connecte via HTTP, récupère les données par lots, les transforme pour assurer la compatibilité des versions, puis les importe dans la base de données cible.
 
 Alternative : connexion directe à la base de données (PDO) pour les migrations sur le même serveur — plus rapide, sans pont nécessaire.
 
@@ -109,18 +107,17 @@ Alternative : connexion directe à la base de données (PDO) pour les migrations
 
 ## 📌 Rapports d’erreurs (optionnels)
 
-Le module peut envoyer un rapport d’échec par e-mail à l’auteur afin de diagnostiquer les problèmes de migration.
+Le module peut envoyer un rapport d’échec par e-mail à Thierry Laval (`contact@thierrylaval.dev`) afin de diagnostiquer les problèmes de migration.
+Quand il est activé, une migration en échec envoie : le message d’erreur et la charge utile de débogage, les versions de PrestaShop et PHP, `memory_limit` / `max_execution_time`, l’URL de la boutique source et l’adresse e-mail de l’employé connecté. Rien n’est envoyé lorsque le commutateur est désactivé, et aucune donnée client ou commande n’est jamais transmise. Voir [TelemetryService.php](prestashift/src/Service/TelemetryService.php) — c’est le seul chemin de code qui envoie quoi que ce soit à Thierry Laval. L’autre connexion sortante du module (`ConnectorClient`) ne communique qu’avec l’URL de la boutique source que vous configurez vous-même.
 **Il est désactivé par défaut** — vous l’activez avec le commutateur *Envoyer les rapports d’erreur au développeur* dans l’étape Options.
 
-Quand il est activé, une migration en échec envoie : le message d’erreur et la charge utile de débogage, les versions de PrestaShop et PHP, `memory_limit` / `max_execution_time`, l’URL de la boutique source et l’adresse e-mail de l’employé connecté. Rien n’est envoyé lorsque le commutateur est désactivé, et aucune donnée client ou commande n’est jamais transmise. Voir [TelemetryService.php](prestashift/src/Service/TelemetryService.php) — c’est le seul chemin de code qui envoie quoi que ce soit à l’auteur. L’autre connexion sortante du module (`ConnectorClient`) ne communique qu’avec l’URL de la boutique source que vous configurez vous-même.
+## 🧩 Support de PrestaMigration
 
-## 🧩 Support du fork
+- Signaler les problèmes directement dans ce dépôt GitHub.
+- Suivre les correctifs et les changements spécifiques à PrestaMigration.
+- Les demandes de support doivent rester centrées sur cette version du projet.
 
-- Signaler les problèmes directement dans ce dépôt GitHub si vous utilisez cette version forkée.
-- Suivre les correctifs et les changements spécifiques à cette adaptation.
-- Les demandes de support doivent rester centrées sur cette version locale et non sur le dépôt original.
-
-> Si vous utilisez ce fork, veuillez signaler les problèmes directement dans ce dépôt et non dans le dépôt d’origine, sauf indication contraire.
+> Pour toute question concernant PrestaMigration, utilisez les issues de ce dépôt.
 
 ### 📦  &nbsp; Utilisé dans ce projet
 
@@ -130,8 +127,12 @@ Quand il est activé, une migration en échec envoie : le message d’erreur et 
 | CSS3            | Git/GitHub         |
 | Javascript      | PHP + PrestaShop   |
 
-## 📄 Licence
+## 📄 Attribution et licence
 
-[Academic Free License 3.0 (AFL-3.0)](LICENSE) — la licence standard des modules PrestaShop.
+PrestaMigration est un projet dérivé contenant du code issu du projet PrestaShift de Marcin Gajewski.
+
+Les informations relatives au projet original, à son auteur et à l’AFL-3.0 sont conservées dans [ATTRIBUTION.md](ATTRIBUTION.md).
+
+[Academic Free License 3.0 (AFL-3.0)](LICENSE)
 
 **[⬆ Retour en haut](#auteur)**
